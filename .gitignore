@@ -1,0 +1,10 @@
+_site
+_posts
+_data/anniversaries.json
+index.markdown
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+.env
+.byebug_history
