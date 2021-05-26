@@ -90,6 +90,7 @@ def build_front_matter(record)
     tags: record['Tags'],
     category: record['Nom du groupe'],
     layout: 'single',
+    excerpt: 'par ' + record['Nom du groupe']
   }
 
   if record['Données du groupe (JSON)'].present?
@@ -110,6 +111,11 @@ def build_front_matter(record)
     # fix some formatting issues
     fm[:song][:publishing_date] = fix_date(fm[:song][:publishing_date]) if fm[:song][:publishing_date]
   end
+
+  if record['Aperçu vidéo'].present? && record['Aperçu vidéo'].count > 0
+    fm[:header][:teaser] = record['Aperçu vidéo'][0]['url']
+  end
+
 
   YAML.dump(fm.deep_stringify_keys) + "\n---"
 end
