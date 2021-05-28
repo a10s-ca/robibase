@@ -183,7 +183,7 @@ def create_posts(records)
 
   # create video pages from Airtable data
   records.each do |record|
-    video_date = record['Date']
+    video_date = record['Date du tweet'] || record['Date']
     filename = "#{VIDEOS_FOLDER}/#{video_date}-#{record.id.to_s}.md"
     record['url'] = '/videos/' + video_date.gsub('-', '/') + '/' + slugify(record['Titre'])
     File.write(filename, record_to_jekyll_post(record))
