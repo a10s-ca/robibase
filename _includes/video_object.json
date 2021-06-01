@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "{{ page.title }}",
+  "description": "{{ page.excerpt }}",
+  "thumbnailUrl": [
+    "https://img.youtube.com/vi/{{ page.header.video.id }}/0.jpg",
+    "https://img.youtube.com/vi/{{ page.header.video.id }}/1.jpg",
+    "https://img.youtube.com/vi/{{ page.header.video.id }}/2.jpg",
+    "https://img.youtube.com/vi/{{ page.header.video.id }}/3.jpg"
+  ],
+  "uploadDate": "{{ page.video_date }}",
+  "contentUrl": "http://www.youtube.com/watch?v={{ page.header.video.id }}"
+}

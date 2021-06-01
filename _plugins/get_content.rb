@@ -89,8 +89,9 @@ def build_front_matter(record)
     },
     tags: record['Tags'],
     category: record['Nom du groupe'],
+    video_date: record['Date'],
     layout: 'single',
-    excerpt: 'par ' + record['Nom du groupe']
+    excerpt: record['Titre'] + ' de ' + record['Nom du groupe'] + ' interprété par Damien Robitaille'
   }
 
   if record['Données du groupe (JSON)'].present?
@@ -116,7 +117,6 @@ def build_front_matter(record)
     fm[:header][:teaser] = record['Aperçu vidéo'][0]['url']
   end
 
-
   YAML.dump(fm.deep_stringify_keys) + "\n---"
 end
 
@@ -125,6 +125,7 @@ def build_post_content(record)
 par #{record["Nom du groupe"]}
 {% include about_band.markdown %}
 {% include about_song.markdown %}
+{% include video_object.markdown %}
   """
 end
 

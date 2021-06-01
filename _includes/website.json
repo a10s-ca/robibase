@@ -1,0 +1,55 @@
+{
+  "@context": "http://schema.org",
+  "@id": "{{ "/#website" |  preprend site.baseurl | prepend: site.url }}",
+  "@type": "WebSite",
+  "url": "{{ site.url }}",
+  "name": "{{ site.title }}",
+  "about": {
+    "@type": "Person",
+    "name": "Damien Robitaille",
+    "identifier": "https://isni.org/isni/0000000074322628",
+    "sameAs": [
+      "https://damienrobitaille.com/",
+      "https://twitter.com/damienrobi",
+      "https://open.spotify.com/artist/2fshYb8TCzSwt9m8NC4Ttu",
+      "https://www.facebook.com/DamienRobi",
+      "https://fr.wikipedia.org/wiki/Damien_Robitaille",
+      "https://www.wikidata.org/wiki/Q3012838"
+    ]
+  },
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "A10s inc",
+      "url": "https://a10s.ca/",
+      "sameAs": "https://a10s.ca/"
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ "/equipe#christian_roy" |  preprend site.baseurl | prepend: site.url }}",
+      "name": "Christian Roy",
+      "url": "http://unchristianroy.com/",
+      "sameAs": [
+        "https://twitter.com/christianroy",
+        "https://www.linkedin.com/in/christianroyquebec/",
+        "http://unchristianroy.com/",
+        "https://medium.com/@christian_roy",
+        "https://github.com/christianroy",
+        "https://christianroy.tumblr.com/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ "/equipe#clement_laberge" |  preprend site.baseurl | prepend: site.url }}",
+      "name": "Clément Laberge",
+      "url": "https://remolino.qc.ca/",
+      "sameAs": [
+        "https://remolino.qc.ca/",
+        "https://twitter.com/remolino",
+        "https://www.linkedin.com/in/claberge/"
+      ]
+    }
+  ],
+  "keywords": "Damien Robitaille, musique, interprétations",
+  "description": "{{ site.description }}"
+}
