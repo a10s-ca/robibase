@@ -10,6 +10,7 @@ POSTS_FOLDER = '_posts'
 VIDEOS_FOLDER = '_posts/videos'
 INDEX_PAGE = 'index.markdown'
 ANNIVERSARIES_DATA_FILE = '_data/anniversaries.json'
+STATISTICS_DATA_FILE = '_data/stats.json'
 AIRTABLE_BASE_ID = ENV["AIRTABLE_BASE_ID"]
 AIRTABLE_API_KEY = ENV["AIRTABLE_API_KEY"]
 
@@ -169,6 +170,84 @@ def get_anniversaries(record)
   return anniversaries
 end
 
+def build_empty_stats
+  {
+    sex: {
+      male: 0,
+      female: 0,
+    },
+    suki: {
+      present: 0,
+      absent: 0,
+    },
+    decade_of_song: {
+      '1940': 0,
+      '1950': 0,
+      '1960': 0,
+      '1970': 0,
+      '1980': 0,
+      '1990': 0,
+      '2000': 0,
+      '2010': 0,
+      '2020': 0,
+      'Autres': 0
+    },
+    instruments: {
+      'Piano': 0,
+      'Guitare': 0,
+      'Les deux': 0
+    }
+  }
+end
+
+def add_stats_for_record(record, statistics)
+  if record['Données du groupe (JSON)'].present?
+    band_info = JSON.parse(record['Données du groupe (JSON)'], symbolize_names: true)
+    if s = band_info[:sex]
+      statistics[:sex][:male] += 1 if s == 'masculin'
+      statistics[:sex][:female] += 1 if s == 'féminin'
+    end
+  end
+
+  if record['Données du titre (JSON)'].present?
+    song_info = JSON.parse(record['Données du titre (JSON)'], symbolize_names: true)
+    if song_info[:publishing_date]
+      year = fix_date(song_info[:publishing_date])[0,4].to_i
+      decade = year.to_s[0,3] + '0'
+      if year >= 1940 and year < 2030
+        statistics[:decade_of_song][decade.to_sym] += 1
+      else
+        statistics[:decade_of_song]['Autres'.to_sym] += 1
+      end
+    end
+  end
+
+  if record['Tags'].present?
+    if record['Tags'].include?('chien')
+      statistics[:suki][:present] += 1
+    else
+      statistics[:suki][:absent] += 1
+    end
+
+    statistics[:instruments]['Guitare'.to_sym] += 1 if record['Tags'].include?('guitare') && !record['Tags'].include?('piano')
+    statistics[:instruments]['Piano'.to_sym] += 1 if record['Tags'].include?('piano') && !record['Tags'].include?('guitare')
+    statistics[:instruments]['Les deux'.to_sym] += 1 if record['Tags'].include?('piano') && record['Tags'].include?('guitare')
+  end
+
+  statistics
+end
+
+# some stats will be easier to convert to charts if they are properly formatted
+def reformat_statistics(statistics)
+  [:decade_of_song, :instruments].each do |stat|
+    statistics[stat] = {
+      labels: statistics[stat].map { |k, v| k },
+      values: statistics[stat].map { |k, v| v }
+    }
+  end
+  statistics
+end
+
 def create_posts(records)
   # make sure the posts folder exists
   FileUtils.mkdir(POSTS_FOLDER) unless File.directory?(POSTS_FOLDER)
@@ -181,6 +260,7 @@ def create_posts(records)
   end
 
   anniversaries = []
+  statistics = build_empty_stats
 
   # create video pages from Airtable data
   records.each do |record|
@@ -193,10 +273,12 @@ def create_posts(records)
       anniversaries.push(new_a) unless anniversaries.any? { |a| a[:band] == new_a[:band] && a[:type] == new_a[:type] }
       # this is to avoid duplicates, as there may be many records from the same band, leading to duplicates in anniversaries
     end
+    statistics = add_stats_for_record(record, statistics)
   end
 
-  # save data for anniversaries
+  # save data for anniversaries and stats
   File.write(ANNIVERSARIES_DATA_FILE, JSON.pretty_generate(anniversaries))
+  File.write(STATISTICS_DATA_FILE, JSON.pretty_generate(reformat_statistics(statistics)))
 end
 
 def feature_item(record)

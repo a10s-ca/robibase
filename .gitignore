@@ -1,6 +1,7 @@
 _site
 _posts
 _data/anniversaries.json
+_data/stats.json
 index.markdown
 .sass-cache
 .jekyll-cache
