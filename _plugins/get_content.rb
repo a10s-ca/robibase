@@ -90,9 +90,10 @@ def build_front_matter(record)
     },
     tags: record['Tags'],
     category: record['Nom du groupe'],
-    video_date: record['Date'],
+    video_date: record['Date'] || record['Date'],
     layout: 'single',
-    excerpt: record['Titre'] + ' de ' + record['Nom du groupe'] + ' interprété par Damien Robitaille'
+    excerpt: record['Titre'] + ' de ' + record['Nom du groupe'] + ' interprété par Damien Robitaille',
+    tweet_url: record['Lien Twitter']
   }
 
   if record['Données du groupe (JSON)'].present?
@@ -123,7 +124,7 @@ end
 
 def build_post_content(record)
   page_content = """
-par #{record["Nom du groupe"]}
+{% include song_intro.markdown %}
 {% include about_band.markdown %}
 {% include about_song.markdown %}
 {% include video_object.markdown %}
@@ -295,12 +296,14 @@ def create_index(records)
   # make sure to delete current create_index
   File.delete(INDEX_PAGE) if File.exists?(INDEX_PAGE)
 
+  latest_records = records.select { |r| r['Date du tweet'].present? && r['Aperçu vidéo'].present? }.sort { |r1, r2| Date.parse(r1['Date du tweet']) - Date.parse(r2['Date du tweet']) }
+
   # create the new index page
   index_page = """---
 layout: splash
 permalink: /
 feature_row:
-""" + feature_item(records[-3]) + feature_item(records[-2]) + feature_item(records[-1]) + """---
+""" + feature_item(latest_records[-3]) + feature_item(latest_records[-2]) + feature_item(latest_records[-1]) + """---
 
 {% include homepage.markdown %}
 

@@ -1,0 +1,1 @@
+Interprétation par Damien Robitaille de la chanson _{{ page.title }}_ de {{ page.band.name}}. {% if page.video_date != "" and page.tweet_url != "" %}La vidéo a été [publiée sur Twitter]({{ page.tweet_url }}) le {{ page.video_date }}.{% endif %}
