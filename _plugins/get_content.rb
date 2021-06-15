@@ -85,7 +85,6 @@ def build_front_matter(record)
     header: {
       video: {
         id: record['ID Youtube'],
-        provider: 'youtube'
       }
     },
     tags: record['Tags'],
@@ -116,7 +115,7 @@ def build_front_matter(record)
   end
 
   if record['Aperçu vidéo'].present? && record['Aperçu vidéo'].count > 0
-    fm[:header][:teaser] = record['Aperçu vidéo'][0]['url']
+    fm[:header][:og_image] = record['Aperçu vidéo'][0]['url']
   end
 
   YAML.dump(fm.deep_stringify_keys) + "\n---"
@@ -125,6 +124,7 @@ end
 def build_post_content(record)
   page_content = """
 {% include song_intro.markdown %}
+{% include video id=\"#{record['ID Youtube']}\" provider=\"youtube\" %}
 {% include about_band.markdown %}
 {% include about_song.markdown %}
 {% include video_object.markdown %}
