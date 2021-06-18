@@ -69,5 +69,6 @@
 
 
 Manque d'information? [Contribuez ici!](https://www.wikidata.org/wiki/{{ page.band.wikidata_id}})
+{: .notice}
 
 {% endif %}

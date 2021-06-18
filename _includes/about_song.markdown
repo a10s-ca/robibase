@@ -35,5 +35,6 @@
 
 
 Manque d'information? [Contribuez ici!](https://www.wikidata.org/wiki/{{ page.song.wikidata_id}})
+{: .notice}
 
 {%- endif -%}

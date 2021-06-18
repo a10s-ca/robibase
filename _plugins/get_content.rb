@@ -13,6 +13,7 @@ ANNIVERSARIES_DATA_FILE = '_data/anniversaries.json'
 STATISTICS_DATA_FILE = '_data/stats.json'
 AIRTABLE_BASE_ID = ENV["AIRTABLE_BASE_ID"]
 AIRTABLE_API_KEY = ENV["AIRTABLE_API_KEY"]
+TAG_FOLDER = 'caracteristiques'
 
 LES_MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
 # apparently Ruby's strftime does not know about French months and I do not want to add an I18n gem just for month names
@@ -125,6 +126,7 @@ def build_post_content(record)
   page_content = """
 {% include song_intro.markdown %}
 {% include video id=\"#{record['ID Youtube']}\" provider=\"youtube\" %}
+{% include about_data.markdown %}
 {% include about_band.markdown %}
 {% include about_song.markdown %}
 {% include video_object.markdown %}
@@ -262,6 +264,7 @@ def create_posts(records)
 
   anniversaries = []
   statistics = build_empty_stats
+  tags = []
 
   # create video pages from Airtable data
   records.each do |record|
@@ -275,11 +278,13 @@ def create_posts(records)
       # this is to avoid duplicates, as there may be many records from the same band, leading to duplicates in anniversaries
     end
     statistics = add_stats_for_record(record, statistics)
+    tags.push(record['Tags'])
   end
 
-  # save data for anniversaries and stats
+  # save data for anniversaries, stats and tag pages
   File.write(ANNIVERSARIES_DATA_FILE, JSON.pretty_generate(anniversaries))
   File.write(STATISTICS_DATA_FILE, JSON.pretty_generate(reformat_statistics(statistics)))
+  tags.flatten.uniq.each { |tag| File.write(TAG_FOLDER + '/' + tag + '.markdown', tag_page(tag)) }
 end
 
 def feature_item(record)
@@ -289,6 +294,16 @@ def feature_item(record)
   url: \"#{record['url']}\"
   btn_label: \"Voir\"
   btn_class: \"btn--primary btn--small\"
+"""
+end
+
+def tag_page(tag)
+  """---
+title: #{tag}
+layout: single
+---
+
+{% include posts_by_tag.markdown %}
 """
 end
 

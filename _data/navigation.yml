@@ -4,6 +4,6 @@ main:
   - title: "Par groupe"
     url: /categories/
   - title: "Par caractéristiques"
-    url: /tags/
+    url: /par-caracteristiques/
   - title: "À propos"
     url: /a-propos/
