@@ -116,7 +116,7 @@ def build_front_matter(record)
   end
 
   if record['Aperçu vidéo'].present? && record['Aperçu vidéo'].count > 0
-    fm[:header][:og_image] = record['Aperçu vidéo'][0]['url']
+    fm[:header][:teaser] = record['Aperçu vidéo'][0]['url']
   end
 
   YAML.dump(fm.deep_stringify_keys) + "\n---"

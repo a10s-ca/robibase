@@ -6,9 +6,9 @@
 
 <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
   <div class="archive__item">
-    {% if post.header.og_image %}
+    {% if post.header.teaser %}
       <div class="archive__item-teaser">
-        <img src="{{ post.header.og_image | relative_url }}"
+        <img src="{{ post.header.teaser | relative_url }}"
              alt="{% if post.title %}{{ post.title }}{% endif %}">
       </div>
     {% endif %}

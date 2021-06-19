@@ -18,7 +18,7 @@
   De l'album: {{ page.song.part_of }}
 {% endif %}
 
-{% if page.song.part_of %}
+{% if page.song.disc_label %}
   Du label: {{ page.song.disc_label }}
 {% endif %}
 
