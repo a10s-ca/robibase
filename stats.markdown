@@ -7,6 +7,13 @@ permalink: /stats/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
+Voici quelques statistiques que nous avons jugées intéressantes et amusantes sur les vidéos publiées par Damien Robitaille. Vous aimeriez trouver une autre information? [Écrivez-nous!](https://a10s.ca/contact)
+
+
+*D'où viennent les données qui ont servi à produire ces graphiques?* Elles sont automatiquement tirées de la base de connaissances Wikidata, à partir de quelques liens que nous avons faits depuis notre propre base de données des vidéos de Damien. [(plus d'information ici)](/a-propos)
+{: .notice--primary}
+
+
 ## Chanteurs originaux
 
 Pour les {{ site.data.stats.sex.male | plus:site.data.stats.sex.female }} chansons associées à des individus (et pas des groupes), il y a plus d'interprètes originaux qui sont des hommes, que de femmes:

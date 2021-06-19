@@ -25,3 +25,6 @@
 
   {%- endif %}
 {% endfor %}
+
+*D'où viennent toutes ces informations?* Elles sont automatiquement tirées de la base de connaissances Wikidata, à partir de quelques liens que nous avons faits depuis notre propre base de données des vidéos de Damien. [(plus d'information ici)](/a-propos)
+{: .notice--primary}

@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: RobiBase
+title: Robibase
 email: bonjour@a10s.ca
 subtitle: Une expérience ludique autour de l'oeuvre pandémique de Damien Robitaille
 description: >- # this means to ignore newlines until "baseurl:"
-  RobiBase est un projet de A10s servant à explorer le potentiel du web
+  Robibase est un projet de A10s servant à explorer le potentiel du web
   sémantique et des solutions de développement d'applications «no-code».
   C'est aussi notre façon de rendre hommage à l'incroyable travail de
   Damien Robitaille depuis le début de la pandémie de COVID-19.

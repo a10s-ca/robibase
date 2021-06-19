@@ -2,7 +2,6 @@
 
 {% include feature_row %}
 
-
 ## Éphémérides...
 
 Ces derniers jours et dans le mois à venir, dans l'univers de Damien, on note:
@@ -11,4 +10,4 @@ Ces derniers jours et dans le mois à venir, dans l'univers de Damien, on note:
 
 ## Autres
 
-Consultez les [statistiques](/stats)
+Consultez les [statistiques](/stats)!
