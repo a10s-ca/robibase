@@ -27,7 +27,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   C'est aussi notre façon de rendre hommage à l'incroyable travail de
   Damien Robitaille depuis le début de la pandémie de COVID-19.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.robibase.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: a10s_ca
 github_username:  a10s-ca
 

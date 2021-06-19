@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org",
-  "@id": "{{ "/#website" |  preprend site.baseurl | prepend: site.url }}",
+  "@id": "{{ "/#website" |  preprend: site.baseurl | prepend: site.url }}",
   "@type": "WebSite",
   "url": "{{ site.url }}",
   "name": "{{ site.title }}",
@@ -26,7 +26,7 @@
     },
     {
       "@type": "Person",
-      "@id": "{{ "/equipe#christian_roy" |  preprend site.baseurl | prepend: site.url }}",
+      "@id": "{{ "/equipe#christian_roy" |  preprend: site.baseurl | prepend: site.url }}",
       "name": "Christian Roy",
       "url": "http://unchristianroy.com/",
       "sameAs": [
@@ -40,7 +40,7 @@
     },
     {
       "@type": "Person",
-      "@id": "{{ "/equipe#clement_laberge" |  preprend site.baseurl | prepend: site.url }}",
+      "@id": "{{ "/equipe#clement_laberge" |  preprend: site.baseurl | prepend: site.url }}",
       "name": "Clément Laberge",
       "url": "https://remolino.qc.ca/",
       "sameAs": [
