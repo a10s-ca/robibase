@@ -10,11 +10,24 @@ C’est aussi (et peut-être surtout!) notre façon de rendre hommage à l’inc
 
 ## Qui sommes-nous?
 
-Nou sommes A10s, une entreprise créée par Christian Roy et Clément Laberge dans le but de bâtir un réseau de passionné.e.s qui ont envie de participer à la réalisation de projets qui sortent des sentiers battus.
+Nou sommes [A10s](https://a10s.ca/), une entreprise créée par Christian Roy et Clément Laberge dans le but de bâtir un réseau de passionné.e.s qui ont envie de participer à la réalisation de projets qui sortent des sentiers battus.
 
 Nous accordons une très grande importance à la rigueur et à la bonne humeur, parce que nous sommes convaincus que ce qui se fait dans le plaisir a plus de chance de réussir.
 
 Vous aimeriez faire partie du réseau? [Écrivez-nous!](https://a10s.ca/contact)
+
+## Le contenu du site
+
+Le site a d’abord pris forme à partir des vidéos de chanson que Damien Robitaille a publiées sur Youtube et relayées sur Twitter.
+
+Chacune des vidéos a été indexée manuellement (merci Cassandra!) dans une base de données Airtable afin de d’identifier certaines caractéristiques: les instruments utilisés et la présence du sympathique Suki, par exemple. Nous avons également associé à chacune des vidéos l’identifiant Wikidata de la chanson et de l’artiste original (Wikidata est une extraordinaire base de données ouverte et collaborative qui est associée à Wikipédia).
+
+Grâce à Wikidata et à ses outils permettant d'extraire des données depuis un script (une API), nous avons pu associer, de façon automatisée, une foule d’autres informations à chacune des productions (année de création de la chanson qui fait l’objet de la reprise, lieu de naissance de l’interprète initial, etc.). Nous avons aussi tiré profit des interfaces similaires (encore les API) de Youtube et Twitter pour obtenir quelques renseignements supplémentaires (la date de diffusion de la chanson, et l'imagette d'aperçu de la vidéo).
+
+C’est en tissant des liens entre toutes ces données que Robibase permet maintenant de redécouvrir l’incroyable travail de Damien Robitaille...
+
+...et d’en être encore plus émerveillé!
+
 
 ## Pourquoi avoir fait ce site?
 
@@ -31,18 +44,6 @@ On rêve déjà d’aller beaucoup plus loin avec d’autres types de contenus c
 Il y a bien sûr déjà quelques projets de ce type qui sont en train de prendre forme au Québec. Tant mieux si Robibase peut servir d’exemple pour illustrer tout le potentiel que ça représenterait d’en faire un véritable chantier collectif!
 
 Si vous avez des idées pour pousser ça encore plus loin, ou mieux, si vous avez du temps pour vous retrousser les manches avec nous — sur ce projet ou sur d’autres projets du même genre, [écrivez-nous!](https://a10s.ca/contact)!
-
-## Le contenu du site
-
-Le site a d’abord pris forme à partir des vidéos de chanson que Damien Robitaille a publiées sur Youtube et relayées sur Twitter.
-
-Chacune des vidéos a été indexée manuellement (merci Cassandra!) dans une base de données Airtable afin de d’identifier certaines caractéristiques: les instruments utilisés et la présence du sympathique Suki, par exemple. Nous avons également associé à chacune des vidéos l’identifiant Wikidata de la chanson et de l’artiste original (Wikidata est une extraordinaire base de données ouverte et collaborative qui est associée à Wikipédia).
-
-Grâce à Wikidata et à ses outils permettant d'extraire des données depuis un script (une API), nous avons pu associer, de façon automatisée, une foule d’autres informations à chacune des productions (année de création de la chanson qui fait l’objet de la reprise, lieu de naissance de l’interprète initial, etc.). Nous avons aussi tiré profit des interfaces similaires (encore les API) de Youtube et Twitter pour obtenir quelques renseignements supplémentaires (la date de diffusion de la chanson, ou l'imagette d'aperçu de la vidéo).
-
-C’est en tissant des liens entre toutes ces données que Robibase permet maintenant de redécouvrir l’incroyable travail de Damien Robitaille...
-
-...et d’en être encore plus émerveillé!
 
 
 

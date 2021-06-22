@@ -79,17 +79,22 @@ def get_yday(date_string)
 end
 
 def build_front_matter(record)
+  tags = record['Tags']
+  if tags.present?
+    tags = tags.map { |t| t.gsub(' ', '_') }
+  end
+
   # build front matter
   fm = {
-    title: record['Titre'],
-    slug: slugify(record['Titre']),
+    title: record['Titre'].try(:strip),
+    slug: slugify(record['Titre'].try(:strip)),
     header: {
       video: {
         id: record['ID Youtube'],
       }
     },
-    tags: record['Tags'],
-    category: record['Nom du groupe'],
+    tags: tags,
+    category: record['Nom du groupe'].try(:strip),
     video_date: record['Date'] || record['Date'],
     layout: 'single',
     excerpt: record['Titre'] + ' de ' + record['Nom du groupe'] + ' interprété par Damien Robitaille',
@@ -284,7 +289,7 @@ def create_posts(records)
   # save data for anniversaries, stats and tag pages
   File.write(ANNIVERSARIES_DATA_FILE, JSON.pretty_generate(anniversaries))
   File.write(STATISTICS_DATA_FILE, JSON.pretty_generate(reformat_statistics(statistics)))
-  tags.flatten.uniq.each { |tag| File.write(TAG_FOLDER + '/' + tag + '.markdown', tag_page(tag)) }
+  tags.flatten.uniq.map { |t| t.gsub(' ', '_') }.each { |tag| File.write(TAG_FOLDER + '/' + tag + '.markdown', tag_page(tag)) }
 end
 
 def feature_item(record)
@@ -299,7 +304,7 @@ end
 
 def tag_page(tag)
   """---
-title: #{tag}
+title: #{tag.gsub(' ', '_')}
 layout: single
 ---
 
