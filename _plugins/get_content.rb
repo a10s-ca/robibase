@@ -81,7 +81,7 @@ end
 def build_front_matter(record)
   tags = record['Tags']
   if tags.present?
-    tags = tags.map { |t| t.gsub(' ', '_') }
+    tags = tags.map { |t| t.gsub(' ', '-') }
   end
 
   # build front matter
@@ -289,7 +289,7 @@ def create_posts(records)
   # save data for anniversaries, stats and tag pages
   File.write(ANNIVERSARIES_DATA_FILE, JSON.pretty_generate(anniversaries))
   File.write(STATISTICS_DATA_FILE, JSON.pretty_generate(reformat_statistics(statistics)))
-  tags.flatten.uniq.map { |t| t.gsub(' ', '_') }.each { |tag| File.write(TAG_FOLDER + '/' + tag + '.markdown', tag_page(tag)) }
+  tags.flatten.uniq.map { |t| t.gsub(' ', '-') }.each { |tag| File.write(TAG_FOLDER + '/' + tag + '.markdown', tag_page(tag)) }
 end
 
 def feature_item(record)
@@ -304,7 +304,7 @@ end
 
 def tag_page(tag)
   """---
-title: #{tag.gsub(' ', '_')}
+title: #{tag.gsub(' ', '-')}
 layout: single
 ---
 

@@ -10,7 +10,7 @@ C’est aussi (et peut-être surtout!) notre façon de rendre hommage à l’inc
 
 ## Qui sommes-nous?
 
-Nou sommes [A10s](https://a10s.ca/), une entreprise créée par Christian Roy et Clément Laberge dans le but de bâtir un réseau de passionné.e.s qui ont envie de participer à la réalisation de projets qui sortent des sentiers battus.
+Nous sommes [A10s](https://a10s.ca/), une entreprise créée par Christian Roy et Clément Laberge dans le but de bâtir un réseau de passionné.e.s qui ont envie de participer à la réalisation de projets qui sortent des sentiers battus.
 
 Nous accordons une très grande importance à la rigueur et à la bonne humeur, parce que nous sommes convaincus que ce qui se fait dans le plaisir a plus de chance de réussir.
 
