@@ -1,9 +1,9 @@
 main:
-  - title: "Accueil"
-    url: /
-  - title: "Par groupe"
-    url: /categories/
-  - title: "Par caractéristiques"
-    url: /par-caracteristiques/
   - title: "À propos"
     url: /a-propos/
+  - title: "Groupes"
+    url: /categories/
+  - title: "Caractéristiques"
+    url: /par-caracteristiques/
+  - title: "Statistiques"
+    url: /stats/

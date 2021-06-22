@@ -12,4 +12,4 @@ Ces derniers jours et dans le mois à venir, dans l'univers de Damien, on note:
 
 ## Autres
 
-Consultez les [statistiques](/stats)!
+Explorez quelques [statistiques](/stats)!

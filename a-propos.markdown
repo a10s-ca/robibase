@@ -20,7 +20,7 @@ Vous aimeriez faire partie du réseau? [Écrivez-nous!](https://a10s.ca/contact)
 
 Le site a d’abord pris forme à partir des vidéos de chanson que Damien Robitaille a publiées sur Youtube et relayées sur Twitter.
 
-Chacune des vidéos a été indexée manuellement (merci Cassandra!) dans une base de données Airtable afin de d’identifier certaines caractéristiques: les instruments utilisés et la présence du sympathique Suki, par exemple. Nous avons également associé à chacune des vidéos l’identifiant Wikidata de la chanson et de l’artiste original (Wikidata est une extraordinaire base de données ouverte et collaborative qui est associée à Wikipédia).
+Chacune des vidéos a été indexée manuellement (merci Cassandra!) dans une base de données Airtable afin d’identifier certaines caractéristiques: les instruments utilisés et la présence du sympathique Suki, par exemple. Nous avons également associé à chacune des vidéos l’identifiant Wikidata de la chanson et de l’artiste original (Wikidata est une extraordinaire base de données ouverte et collaborative qui est associée à Wikipédia).
 
 Grâce à Wikidata et à ses outils permettant d'extraire des données depuis un script (une API), nous avons pu associer, de façon automatisée, une foule d’autres informations à chacune des productions (année de création de la chanson qui fait l’objet de la reprise, lieu de naissance de l’interprète initial, etc.). Nous avons aussi tiré profit des interfaces similaires (encore les API) de Youtube et Twitter pour obtenir quelques renseignements supplémentaires (la date de diffusion de la chanson, et l'imagette d'aperçu de la vidéo).
 
