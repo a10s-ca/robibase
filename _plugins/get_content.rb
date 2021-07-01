@@ -130,7 +130,6 @@ end
 def build_post_content(record)
   page_content = """
 {% include song_intro.markdown %}
-{% include video id=\"#{record['ID Youtube']}\" provider=\"youtube\" %}
 {% include about_data.markdown %}
 {% include about_band.markdown %}
 {% include about_song.markdown %}
@@ -323,7 +322,7 @@ def create_index(records)
 layout: splash
 permalink: /
 feature_row:
-""" + feature_item(latest_records[-3]) + feature_item(latest_records[-2]) + feature_item(latest_records[-1]) + """---
+""" + feature_item(latest_records[-1]) + feature_item(latest_records[-2]) + feature_item(latest_records[-3]) + """---
 
 {% include homepage.markdown %}
 
